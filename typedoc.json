@@ -1,0 +1,8 @@
+{
+    "entryPoints": [
+        "./src/FunkoApp/yargsMain.ts",
+        "./src/FunkoApp/Funko/*",
+        "./src/FunkoApp/Usuario/*",
+    ],
+    "out": "./docs"
+}
