@@ -4,13 +4,18 @@ import { spawn } from "child_process";
 const fileName = process.argv[3];
 const opcion = process.argv[2];
 
+/**
+ * Función que comprobará los cambios en el fichero
+ */
 watchFile(fileName, (curr, prev) => {
+  // Con este condicional se comprobará si existe o no el fichero
   if (!existsSync(fileName)) {
     console.log("El fichero no existe");
     process.exit();
   }
 
   const cat = spawn("cat", [fileName]);
+  // Switch que comprobará las opciones válidas para el -wc
   switch (opcion) {
     case "líneas": {
       const wc = spawn("wc", ["-l"]);
@@ -69,7 +74,9 @@ watchFile(fileName, (curr, prev) => {
       break;
     }
     default: {
-      console.log("Opción no válida");
+      console.log(
+        "Opción no válida. Ejecute de la siguiente manera: node ./dist/Ejercicio_P10/Ejercicio2.js [líneas | palabras | carácteres | completo] <fichero>"
+      );
       process.exit();
     }
   }
