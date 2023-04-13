@@ -27,7 +27,7 @@ watchFile(fileName, (curr, prev) => {
       });
 
       wc.on("close", () => {
-        process.stdout.write(`${wcOutput} líneas`);
+        process.stdout.write(`${wcOutput}líneas`);
       });
       break;
     }
@@ -41,7 +41,7 @@ watchFile(fileName, (curr, prev) => {
       });
 
       wc.on("close", () => {
-        process.stdout.write(`${wcOutput} palabras`);
+        process.stdout.write(`${wcOutput}palabras`);
       });
       break;
     }
@@ -55,7 +55,7 @@ watchFile(fileName, (curr, prev) => {
       });
 
       wc.on("close", () => {
-        process.stdout.write(`${wcOutput} carácteres`);
+        process.stdout.write(`${wcOutput}carácteres`);
       });
       break;
     }
@@ -69,7 +69,7 @@ watchFile(fileName, (curr, prev) => {
       });
 
       wc.on("close", () => {
-        process.stdout.write(`${wcOutput} líneas palabras y bytes`);
+        process.stdout.write(`${wcOutput}líneas palabras y bytes`);
       });
       break;
     }
