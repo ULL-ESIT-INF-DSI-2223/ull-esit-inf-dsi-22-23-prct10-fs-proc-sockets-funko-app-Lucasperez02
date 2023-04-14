@@ -41,7 +41,7 @@ switch (opcion) {
     });
     break;
   }
-  case "carácteres": {
+  case "caracteres": {
     const wc = spawn("wc", ["-m"]);
     cat.stdout.pipe(wc.stdin);
 
@@ -51,7 +51,7 @@ switch (opcion) {
     });
 
     wc.on("close", () => {
-      process.stdout.write(`${wcOutput}carácteres\n`);
+      process.stdout.write(`${wcOutput}caracteres\n`);
     });
     break;
   }
@@ -71,7 +71,7 @@ switch (opcion) {
   }
   default: {
     console.log(
-      "Opción no válida. Ejecute de la siguiente manera: node ./dist/Ejercicio_P10/Ejercicio2.js [líneas | palabras | carácteres | completo] <fichero>"
+      "Opción no válida. Ejecute de la siguiente manera: node ./dist/Ejercicio_P10/Ejercicio2.js [líneas | palabras | caracteres | completo] <fichero>"
     );
     process.exit();
   }
