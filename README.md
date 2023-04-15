@@ -1,3 +1,4 @@
+###### Lucas Pérez Rosario, DSI, 16/04/2023
 # Práctica 10: Sockets Funko App
 
 ## _Ejercicio 1._
