@@ -1,6 +1,3 @@
-[![Coverage Status](https://coveralls.io/repos/github/ULL-ESIT-INF-DSI-2223/ull-esit-inf-dsi-22-23-prct10-fs-proc-sockets-funko-app-Lucasperez02/badge.svg?branch=main)](https://coveralls.io/github/ULL-ESIT-INF-DSI-2223/ull-esit-inf-dsi-22-23-prct10-fs-proc-sockets-funko-app-Lucasperez02?branch=main)
-[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=ULL-ESIT-INF-DSI-2223_ull-esit-inf-dsi-22-23-prct10-fs-proc-sockets-funko-app-Lucasperez02&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=ULL-ESIT-INF-DSI-2223_ull-esit-inf-dsi-22-23-prct10-fs-proc-sockets-funko-app-Lucasperez02)
-
 # Práctica 10: Sockets Funko App
 
 ## _Ejercicio 1._
@@ -126,3 +123,65 @@ Lo que hace el código es lo siguiente:
 - Por último, una vez se ha acabado con el comando y se ha obtenido el evento **close**, lo que se hará es mostrar con el write, lo que se haya obtenido del comando wc.
 
 Se establece también un caso default en el que si se pasa un parámetro de opción que no corresponde con los correctos se indicara con un mensaje cómo se debe ejecutar el programa.
+
+Para este ejercicio se han realizado test y para poder probarlos se ha hecho de la siguiente manera:
+
+- Una función tendrá lo que se ha nombrado anteriormente para realizar la lectura del fichero y la aplicación del comando.
+
+```ts
+ejecutarComando(
+  opcion: string,
+  fileName: string,
+  cb: (str: string) => void
+)
+```
+
+Como se observa, a la función se le pasa un string correspondiente a la opción, otro correspondiente a la ruta del fichero a observar y un callback que se usará para manejar los resultados en los test.
+
+- Un ejemplo se test será el siguiente.
+
+```ts
+ejecutarComando(
+  "líneas",
+  "/home/usuario/P10/ull-esit-inf-dsi-22-23-prct10-fs-proc-sockets-funko-app-Lucasperez02/helloworld.txt",
+  (str: string) => {
+    expect(str).to.be.eql(`3\nlíneas\n`);
+  }
+);
+```
+
+En este caso se está ejecutando la opción del conteo de líneas del fichero y lo que se pasará en el callback es cómo se manejará el resultado. el callback tendrá el string con el resultado y dentro de este se hará la expectativa del resultado.
+
+## _Ejercicio 3: Cliente y servidor_
+
+Para este ejercicio se pide, utilizando lo desarrollado en la anterior sobre los Funkos, crear una aplicación cliente-servidor que permita mediante una conexión desde nuestro cliente, modificar la lista de funkos del usuario.
+
+Para esto se desarrollará, por un lado un servidor y por otro el cliente.
+
+### **Servidor**
+
+El servidor será el encargado de realizar las operaciones que vendrán en la petición del cliente.
+
+Las operaciones podrá ser:
+
+- Añadir funko
+- Modificar funko
+- Eliminar funko
+- Listar funkos
+- Mostrar funko concreto
+
+Estas operaciones son las que se han desarrollado en la práctica anterior. Hay que tener en cuenta que para añadir y modificar funko habrá falta tener un objeto funko y para las demás operaciones necesitaremos el id de dicho funko. De esto se encargará el cliente, proporcionando la información en la petición que haga.
+
+Cuando el cliente realiza la petición, el servidor recibe la operación a realizar y aplicará dicha operación a la lista de funkos del usuario cliente.
+
+Luego de esto responderá al cliente con un mensaje de éxito o de fracaso si la operación se realizó o no correctamente.
+
+### **Cliente**
+
+En este caso, se desarrollará también el cliente, cuya función será, haciendo uso del **main yargs** desarrollado en la práctica anterior, se pedirá al usuario que introduzca la operación a realizar y los valores necesarios.
+Lo que saquemos de aquí se enviará al servidor para que haga la operación correspondiente.
+
+Finalmente el cliente recibirá el mensaje de éxito o fracaso que de el servidor y se mostrará por la terminal del cliente haciendo uso del **chalk**.
+
+[![Coverage Status](https://coveralls.io/repos/github/ULL-ESIT-INF-DSI-2223/ull-esit-inf-dsi-22-23-prct10-fs-proc-sockets-funko-app-Lucasperez02/badge.svg?branch=main)](https://coveralls.io/github/ULL-ESIT-INF-DSI-2223/ull-esit-inf-dsi-22-23-prct10-fs-proc-sockets-funko-app-Lucasperez02?branch=main)
+[![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=ULL-ESIT-INF-DSI-2223_ull-esit-inf-dsi-22-23-prct10-fs-proc-sockets-funko-app-Lucasperez02&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=ULL-ESIT-INF-DSI-2223_ull-esit-inf-dsi-22-23-prct10-fs-proc-sockets-funko-app-Lucasperez02)
