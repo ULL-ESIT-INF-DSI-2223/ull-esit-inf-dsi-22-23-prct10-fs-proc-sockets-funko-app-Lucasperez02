@@ -1,0 +1,161 @@
+<!DOCTYPE html><html class="default" lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>prct10_Lucasperez02</title><meta name="description" content="Documentation for prct10_Lucasperez02"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os"</script><header class="tsd-page-toolbar">
+<div class="tsd-toolbar-contents container">
+<div class="table-cell" id="tsd-search" data-base=".">
+<div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M15.7824 13.833L12.6666 10.7177C12.5259 10.5771 12.3353 10.499 12.1353 10.499H11.6259C12.4884 9.39596 13.001 8.00859 13.001 6.49937C13.001 2.90909 10.0914 0 6.50048 0C2.90959 0 0 2.90909 0 6.49937C0 10.0896 2.90959 12.9987 6.50048 12.9987C8.00996 12.9987 9.39756 12.4863 10.5008 11.6239V12.1332C10.5008 12.3332 10.5789 12.5238 10.7195 12.6644L13.8354 15.7797C14.1292 16.0734 14.6042 16.0734 14.8948 15.7797L15.7793 14.8954C16.0731 14.6017 16.0731 14.1267 15.7824 13.833ZM6.50048 10.499C4.29094 10.499 2.50018 8.71165 2.50018 6.49937C2.50018 4.29021 4.28781 2.49976 6.50048 2.49976C8.71001 2.49976 10.5008 4.28708 10.5008 6.49937C10.5008 8.70852 8.71314 10.499 6.50048 10.499Z" fill="var(--color-text)"></path></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div>
+<div class="field">
+<div id="tsd-toolbar-links"></div></div>
+<ul class="results">
+<li class="state loading">Preparing search index...</li>
+<li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">prct10_Lucasperez02</a></div>
+<div class="table-cell" id="tsd-widgets"><a href="#" class="tsd-widget tsd-toolbar-icon menu no-caption" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="7" width="14" height="2" fill="var(--color-text)"></rect><rect x="1" y="11" width="14" height="2" fill="var(--color-text)"></rect></svg></a></div></div></header>
+<div class="container container-main">
+<div class="col-8 col-content">
+<div class="tsd-page-title">
+<h2>prct10_Lucasperez02</h2></div>
+<div class="tsd-panel tsd-typography">
+<a href="#práctica-10-sockets-funko-app" id="práctica-10-sockets-funko-app" style="color: inherit; text-decoration: none;">
+  <h1>Práctica 10: Sockets Funko App</h1>
+</a>
+
+<a href="#ejercicio-1" id="ejercicio-1" style="color: inherit; text-decoration: none;">
+  <h2><em>Ejercicio 1.</em></h2>
+</a>
+<p>En este primer ejercicio se pide comentar cómo sería la traza del siguiente código:</p>
+<pre><code class="language-ts"><span class="hl-0">import</span><span class="hl-1"> { </span><span class="hl-2">access</span><span class="hl-1">, </span><span class="hl-2">constants</span><span class="hl-1">, </span><span class="hl-2">watch</span><span class="hl-1"> } </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&quot;fs&quot;</span><span class="hl-1">;</span><br/><br/><span class="hl-0">if</span><span class="hl-1"> (</span><span class="hl-2">process</span><span class="hl-1">.</span><span class="hl-2">argv</span><span class="hl-1">.</span><span class="hl-2">length</span><span class="hl-1"> !== </span><span class="hl-4">3</span><span class="hl-1">) {</span><br/><span class="hl-1">  </span><span class="hl-2">console</span><span class="hl-1">.</span><span class="hl-5">log</span><span class="hl-1">(</span><span class="hl-3">&quot;Please, specify a file&quot;</span><span class="hl-1">);</span><br/><span class="hl-1">} </span><span class="hl-0">else</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-6">const</span><span class="hl-1"> </span><span class="hl-7">filename</span><span class="hl-1"> = </span><span class="hl-2">process</span><span class="hl-1">.</span><span class="hl-2">argv</span><span class="hl-1">[</span><span class="hl-4">2</span><span class="hl-1">];</span><br/><br/><span class="hl-1">  </span><span class="hl-5">access</span><span class="hl-1">(</span><span class="hl-2">filename</span><span class="hl-1">, </span><span class="hl-2">constants</span><span class="hl-1">.</span><span class="hl-7">F_OK</span><span class="hl-1">, (</span><span class="hl-2">err</span><span class="hl-1">) </span><span class="hl-6">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">    </span><span class="hl-0">if</span><span class="hl-1"> (</span><span class="hl-2">err</span><span class="hl-1">) {</span><br/><span class="hl-1">      </span><span class="hl-2">console</span><span class="hl-1">.</span><span class="hl-5">log</span><span class="hl-1">(</span><span class="hl-3">`File </span><span class="hl-6">${</span><span class="hl-2">filename</span><span class="hl-6">}</span><span class="hl-3"> does not exist`</span><span class="hl-1">);</span><br/><span class="hl-1">    } </span><span class="hl-0">else</span><span class="hl-1"> {</span><br/><span class="hl-1">      </span><span class="hl-2">console</span><span class="hl-1">.</span><span class="hl-5">log</span><span class="hl-1">(</span><span class="hl-3">`Starting to watch file </span><span class="hl-6">${</span><span class="hl-2">filename</span><span class="hl-6">}</span><span class="hl-3">`</span><span class="hl-1">);</span><br/><br/><span class="hl-1">      </span><span class="hl-6">const</span><span class="hl-1"> </span><span class="hl-7">watcher</span><span class="hl-1"> = </span><span class="hl-5">watch</span><span class="hl-1">(</span><span class="hl-2">process</span><span class="hl-1">.</span><span class="hl-2">argv</span><span class="hl-1">[</span><span class="hl-4">2</span><span class="hl-1">]);</span><br/><br/><span class="hl-1">      </span><span class="hl-2">watcher</span><span class="hl-1">.</span><span class="hl-5">on</span><span class="hl-1">(</span><span class="hl-3">&quot;change&quot;</span><span class="hl-1">, () </span><span class="hl-6">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">        </span><span class="hl-2">console</span><span class="hl-1">.</span><span class="hl-5">log</span><span class="hl-1">(</span><span class="hl-3">`File </span><span class="hl-6">${</span><span class="hl-2">filename</span><span class="hl-6">}</span><span class="hl-3"> has been modified somehow`</span><span class="hl-1">);</span><br/><span class="hl-1">      });</span><br/><br/><span class="hl-1">      </span><span class="hl-2">console</span><span class="hl-1">.</span><span class="hl-5">log</span><span class="hl-1">(</span><span class="hl-3">`File </span><span class="hl-6">${</span><span class="hl-2">filename</span><span class="hl-6">}</span><span class="hl-3"> is no longer watched`</span><span class="hl-1">);</span><br/><span class="hl-1">    }</span><br/><span class="hl-1">  });</span><br/><span class="hl-1">}</span>
+</code></pre>
+<p>Este código tiene secuencias tanto síncronas como asíncronas y a continuación se indicará cómo se ejecuta mostrando paso a paso el contenido de la pila de llamadas, el registro de eventos de la API y la cola de manejadores. Se explicará el caso en el que sí existe el fichero y no hay errores, además se harán cambios en el fichero.</p>
+<ol>
+<li><p>Lo primero que ocurrirá es que la función <strong>access</strong> entrará en la pila de llamadas para ser ejecutada.</p>
+</li>
+<li><p>Luego, en este caso que no hay errores, en la pila de llamadas entrará <strong>console.log(<code>Starting to watch file ${filename}</code>)</strong>, se ejecutará y saldrá de la pila.
+En la terminal tendremos</p>
+</li>
+</ol>
+<pre><code><span class="hl-2">Terminal</span><br/><span class="hl-2">Starting</span><span class="hl-1"> </span><span class="hl-2">to</span><span class="hl-1"> </span><span class="hl-2">watch</span><span class="hl-1"> </span><span class="hl-2">file</span><span class="hl-1"> ./</span><span class="hl-2">dist</span><span class="hl-1">/</span><span class="hl-2">Ejercicio_P10</span><span class="hl-1">/</span><span class="hl-2">hola</span><span class="hl-1">.</span><span class="hl-2">txt</span>
+</code></pre>
+<ol start="3">
+<li><p>Lo siguiente que ocurrirá es que se inicializará la constante <strong>watcher</strong>, entrando la función <strong>watch</strong> en la pila de llamadas.</p>
+</li>
+<li><p>A continuación, en la pila de llamadas entrará <strong>console.log(<code>File ${filename} is no longer watched</code>)</strong>, se ejecutará y saldrá de la pila. Esto ocurrirá porque esta secuencia es código síncrono lo que provocará que se ejecute antes que las otras secuencias asíncronas.
+En la terminal tendremos</p>
+</li>
+</ol>
+<pre><code><span class="hl-2">Terminal</span><br/><span class="hl-2">Starting</span><span class="hl-1"> </span><span class="hl-2">to</span><span class="hl-1"> </span><span class="hl-2">watch</span><span class="hl-1"> </span><span class="hl-2">file</span><span class="hl-1"> ./</span><span class="hl-2">dist</span><span class="hl-1">/</span><span class="hl-2">Ejercicio_P10</span><span class="hl-1">/</span><span class="hl-2">hola</span><span class="hl-1">.</span><span class="hl-2">txt</span><br/><span class="hl-2">File</span><span class="hl-1"> ./</span><span class="hl-2">dist</span><span class="hl-1">/</span><span class="hl-2">Ejercicio_P10</span><span class="hl-1">/</span><span class="hl-2">hola</span><span class="hl-1">.</span><span class="hl-2">txt</span><span class="hl-1"> </span><span class="hl-2">is</span><span class="hl-1"> </span><span class="hl-2">no</span><span class="hl-1"> </span><span class="hl-2">longer</span><span class="hl-1"> </span><span class="hl-2">watched</span>
+</code></pre>
+<ol start="5">
+<li>Lo siguiente que ocurrirá es que entrará en el registro de eventos de la API manejador de la función <strong>watcher.on</strong> que esperará a que ocurra el evento <strong>change</strong> en el fichero que se está controlando y luego, de la cola de manejadores, se ejecutará cuando sea posible el console.log en la pila de llamadas. En la terminal habrá lo siguiente</li>
+</ol>
+<pre><code><span class="hl-2">Terminal</span><br/><span class="hl-2">Starting</span><span class="hl-1"> </span><span class="hl-2">to</span><span class="hl-1"> </span><span class="hl-2">watch</span><span class="hl-1"> </span><span class="hl-2">file</span><span class="hl-1"> ./</span><span class="hl-2">dist</span><span class="hl-1">/</span><span class="hl-2">Ejercicio_P10</span><span class="hl-1">/</span><span class="hl-2">hola</span><span class="hl-1">.</span><span class="hl-2">txt</span><br/><span class="hl-2">File</span><span class="hl-1"> ./</span><span class="hl-2">dist</span><span class="hl-1">/</span><span class="hl-2">Ejercicio_P10</span><span class="hl-1">/</span><span class="hl-2">hola</span><span class="hl-1">.</span><span class="hl-2">txt</span><span class="hl-1"> </span><span class="hl-2">is</span><span class="hl-1"> </span><span class="hl-2">no</span><span class="hl-1"> </span><span class="hl-2">longer</span><span class="hl-1"> </span><span class="hl-2">watched</span><br/><span class="hl-2">File</span><span class="hl-1"> ./</span><span class="hl-2">dist</span><span class="hl-1">/</span><span class="hl-2">Ejercicio_P10</span><span class="hl-1">/</span><span class="hl-2">hola</span><span class="hl-1">.</span><span class="hl-2">txt</span><span class="hl-1"> </span><span class="hl-2">has</span><span class="hl-1"> </span><span class="hl-2">been</span><span class="hl-1"> </span><span class="hl-2">modified</span><span class="hl-1"> </span><span class="hl-2">somehow</span>
+</code></pre>
+<p>Esto ocurrirá cada vez que se haga una modificación en el fichero que se está observando y se de el evento <strong>change</strong>.</p>
+
+<a href="#ejercicio-2-lectura-de-fichero-uso-del-cat-y-wc" id="ejercicio-2-lectura-de-fichero-uso-del-cat-y-wc" style="color: inherit; text-decoration: none;">
+  <h2><em>Ejercicio 2: Lectura de fichero (uso del cat y wc)</em></h2>
+</a>
+<p>Para este ejercicio se pide desarrollar una aplicación que proporcione información sobre el número de líneas, palabras o caracteres que contiene un fichero de texto.</p>
+<p>Para ello se pasará a la llamada de la ejecución del programa por un lado la opción de qué queremos contar (líneas, palabras, caracteres o todas ellas) y también el fichero al que se le aplicará el comando.</p>
+<p>Lo primero será obtener tanto la opción como el fichero, de esta manera:</p>
+<pre><code class="language-ts"><span class="hl-6">const</span><span class="hl-1"> </span><span class="hl-7">fileName</span><span class="hl-1"> = </span><span class="hl-2">process</span><span class="hl-1">.</span><span class="hl-2">argv</span><span class="hl-1">[</span><span class="hl-4">3</span><span class="hl-1">];</span><br/><span class="hl-6">const</span><span class="hl-1"> </span><span class="hl-7">opcion</span><span class="hl-1"> = </span><span class="hl-2">process</span><span class="hl-1">.</span><span class="hl-2">argv</span><span class="hl-1">[</span><span class="hl-4">2</span><span class="hl-1">];</span>
+</code></pre>
+<p>Y también comprobar si el fichero que se ha pasado por parámetros existe o no, en caso que no exista se acabará el proceso.</p>
+<pre><code class="language-ts"><span class="hl-0">if</span><span class="hl-1"> (!</span><span class="hl-5">existsSync</span><span class="hl-1">(</span><span class="hl-2">fileName</span><span class="hl-1">)) {</span><br/><span class="hl-1">  </span><span class="hl-2">console</span><span class="hl-1">.</span><span class="hl-5">log</span><span class="hl-1">(</span><span class="hl-3">&quot;El fichero no existe&quot;</span><span class="hl-1">);</span><br/><span class="hl-1">  </span><span class="hl-2">process</span><span class="hl-1">.</span><span class="hl-5">exit</span><span class="hl-1">();</span><br/><span class="hl-1">}</span>
+</code></pre>
+<p>A continuación se creará un child process para el comando cat</p>
+<pre><code class="language-ts"><span class="hl-6">const</span><span class="hl-1"> </span><span class="hl-7">cat</span><span class="hl-1"> = </span><span class="hl-5">spawn</span><span class="hl-1">(</span><span class="hl-3">&quot;cat&quot;</span><span class="hl-1">, [</span><span class="hl-2">fileName</span><span class="hl-1">]);</span>
+</code></pre>
+<p>Ahora sí se hará un switch en el que se comprobará la opción para saber qué comando de <strong>wc</strong> se ejecutará.</p>
+<p>En cada caso el código será el siguiente</p>
+<pre><code class="language-ts"><span class="hl-6">const</span><span class="hl-1"> </span><span class="hl-7">wc</span><span class="hl-1"> = </span><span class="hl-5">spawn</span><span class="hl-1">(</span><span class="hl-3">&quot;wc&quot;</span><span class="hl-1">, [</span><span class="hl-2">opción</span><span class="hl-1">]);</span><br/><span class="hl-2">cat</span><span class="hl-1">.</span><span class="hl-2">stdout</span><span class="hl-1">.</span><span class="hl-5">pipe</span><span class="hl-1">(</span><span class="hl-2">wc</span><span class="hl-1">.</span><span class="hl-2">stdin</span><span class="hl-1">);</span><br/><br/><span class="hl-6">let</span><span class="hl-1"> </span><span class="hl-2">wcOutput</span><span class="hl-1"> = </span><span class="hl-3">&quot;&quot;</span><span class="hl-1">;</span><br/><span class="hl-2">wc</span><span class="hl-1">.</span><span class="hl-2">stdout</span><span class="hl-1">.</span><span class="hl-5">on</span><span class="hl-1">(</span><span class="hl-3">&quot;data&quot;</span><span class="hl-1">, (</span><span class="hl-2">piece</span><span class="hl-1">) </span><span class="hl-6">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-2">wcOutput</span><span class="hl-1"> += </span><span class="hl-2">piece</span><span class="hl-1">;</span><br/><span class="hl-1">});</span><br/><br/><span class="hl-2">wc</span><span class="hl-1">.</span><span class="hl-5">on</span><span class="hl-1">(</span><span class="hl-3">&quot;close&quot;</span><span class="hl-1">, () </span><span class="hl-6">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-2">process</span><span class="hl-1">.</span><span class="hl-2">stdout</span><span class="hl-1">.</span><span class="hl-5">write</span><span class="hl-1">(</span><span class="hl-3">`</span><span class="hl-6">${</span><span class="hl-2">wcOutput</span><span class="hl-6">}</span><span class="hl-8">\n</span><span class="hl-3">`</span><span class="hl-1">);</span><br/><span class="hl-1">});</span>
+</code></pre>
+<p>Este código se repetirá para todas las opciones y solo cambiará el parámetro opción, que será <strong>-l</strong> para las líneas, <strong>-w</strong> para las palabras, <strong>-c</strong> para los caracteres y sin opción para mostrar todo lo anterior.</p>
+<p>Lo que hace el código es lo siguiente:</p>
+<ul>
+<li><p>Crear el child process correspondiente para el comando <strong>wc</strong></p>
+</li>
+<li><p>Redirigir la salida del cat a la entrada del wc</p>
+</li>
+<li><p>Obtener el mensaje correspondiente al wc de manera que supongamos que puede llegar a cachos.</p>
+</li>
+<li><p>Por último, una vez se ha acabado con el comando y se ha obtenido el evento <strong>close</strong>, lo que se hará es mostrar con el write, lo que se haya obtenido del comando wc.</p>
+</li>
+</ul>
+<p>Se establece también un caso default en el que si se pasa un parámetro de opción que no corresponde con los correctos se indicara con un mensaje cómo se debe ejecutar el programa.</p>
+<p>Para este ejercicio se han realizado test y para poder probarlos se ha hecho de la siguiente manera:</p>
+<ul>
+<li>Una función tendrá lo que se ha nombrado anteriormente para realizar la lectura del fichero y la aplicación del comando.</li>
+</ul>
+<pre><code class="language-ts"><span class="hl-5">ejecutarComando</span><span class="hl-1">(</span><br/><span class="hl-1">  </span><span class="hl-2">opcion</span><span class="hl-1">: </span><span class="hl-2">string</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-2">fileName</span><span class="hl-1">: </span><span class="hl-2">string</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-2">cb</span><span class="hl-1">: (</span><span class="hl-2">str</span><span class="hl-1">: </span><span class="hl-9">string</span><span class="hl-1">) </span><span class="hl-6">=&gt;</span><span class="hl-1"> </span><span class="hl-6">void</span><br/><span class="hl-1">)</span>
+</code></pre>
+<p>Como se observa, a la función se le pasa un string correspondiente a la opción, otro correspondiente a la ruta del fichero a observar y un callback que se usará para manejar los resultados en los test.</p>
+<ul>
+<li>Un ejemplo se test será el siguiente.</li>
+</ul>
+<pre><code class="language-ts"><span class="hl-5">ejecutarComando</span><span class="hl-1">(</span><br/><span class="hl-1">  </span><span class="hl-3">&quot;líneas&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-3">&quot;/home/usuario/P10/ull-esit-inf-dsi-22-23-prct10-fs-proc-sockets-funko-app-Lucasperez02/helloworld.txt&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">  (</span><span class="hl-2">str</span><span class="hl-1">: </span><span class="hl-9">string</span><span class="hl-1">) </span><span class="hl-6">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">    </span><span class="hl-5">expect</span><span class="hl-1">(</span><span class="hl-2">str</span><span class="hl-1">).</span><span class="hl-2">to</span><span class="hl-1">.</span><span class="hl-2">be</span><span class="hl-1">.</span><span class="hl-5">eql</span><span class="hl-1">(</span><span class="hl-3">`3</span><span class="hl-8">\n</span><span class="hl-3">líneas</span><span class="hl-8">\n</span><span class="hl-3">`</span><span class="hl-1">);</span><br/><span class="hl-1">  }</span><br/><span class="hl-1">);</span>
+</code></pre>
+<p>En este caso se está ejecutando la opción del conteo de líneas del fichero y lo que se pasará en el callback es cómo se manejará el resultado. el callback tendrá el string con el resultado y dentro de este se hará la expectativa del resultado.</p>
+
+<a href="#ejercicio-3-cliente-y-servidor" id="ejercicio-3-cliente-y-servidor" style="color: inherit; text-decoration: none;">
+  <h2><em>Ejercicio 3: Cliente y servidor</em></h2>
+</a>
+<p>Para este ejercicio se pide, utilizando lo desarrollado en la anterior sobre los Funkos, crear una aplicación cliente-servidor que permita mediante una conexión desde nuestro cliente, modificar la lista de funkos del usuario.</p>
+<p>Para esto se desarrollará, por un lado un servidor y por otro el cliente.</p>
+
+<a href="#servidor" id="servidor" style="color: inherit; text-decoration: none;">
+  <h3><strong>Servidor</strong></h3>
+</a>
+<p>El servidor será el encargado de realizar las operaciones que vendrán en la petición del cliente.</p>
+<p>Las operaciones podrá ser:</p>
+<ul>
+<li>Añadir funko</li>
+<li>Modificar funko</li>
+<li>Eliminar funko</li>
+<li>Listar funkos</li>
+<li>Mostrar funko concreto</li>
+</ul>
+<p>Estas operaciones son las que se han desarrollado en la práctica anterior. Hay que tener en cuenta que para añadir y modificar funko habrá falta tener un objeto funko y para las demás operaciones necesitaremos el id de dicho funko. De esto se encargará el cliente, proporcionando la información en la petición que haga.</p>
+<p>Cuando el cliente realiza la petición, el servidor recibe la operación a realizar y aplicará dicha operación a la lista de funkos del usuario cliente.</p>
+<p>Luego de esto responderá al cliente con un mensaje de éxito o de fracaso si la operación se realizó o no correctamente.</p>
+
+<a href="#cliente" id="cliente" style="color: inherit; text-decoration: none;">
+  <h3><strong>Cliente</strong></h3>
+</a>
+<p>En este caso, se desarrollará también el cliente, cuya función será, haciendo uso del <strong>main yargs</strong> desarrollado en la práctica anterior, se pedirá al usuario que introduzca la operación a realizar y los valores necesarios.
+Lo que saquemos de aquí se enviará al servidor para que haga la operación correspondiente.</p>
+<p>Finalmente el cliente recibirá el mensaje de éxito o fracaso que de el servidor y se mostrará por la terminal del cliente haciendo uso del <strong>chalk</strong>.</p>
+
+<a href="#conclusión" id="conclusión" style="color: inherit; text-decoration: none;">
+  <h2><strong>Conclusión</strong></h2>
+</a>
+<p>Tras esta práctica he conseguido entender de una mejor manera módulos de node.js como <strong>Events</strong>, <strong>Child_Process</strong>, <strong>Net</strong> además del ya usado <strong>Fs</strong>. Con el ejercicio 1 he podido entender mejor el funcionamiento del bucle de eventos además de las estructuras de datos para el control de llamadas, manejadores y eventos para la ejecución de programas asíncronos y síncronos.</p>
+<p>Por otro lado, con el ejercicio 2 he comprendido el uso de lo que es un <strong>Stream</strong> y la utilidad que tiene el <strong>pipe</strong> para redirigir salidas de comandos para usarlas en la entrada de otros. Además de practicar con objetos Child Process.</p>
+<p>Por último, en el ejercicio 3, ha pesar de no haberlo podido implementar, creo haber entendido el planteamiento de cómo realizar una conexión cliente-servidor en la que el cliente pueda hacer peticiones que el servidor ejecutará y dará una respuesta.</p>
+<p><a href="https://coveralls.io/github/ULL-ESIT-INF-DSI-2223/ull-esit-inf-dsi-22-23-prct10-fs-proc-sockets-funko-app-Lucasperez02?branch=main"><img src="https://coveralls.io/repos/github/ULL-ESIT-INF-DSI-2223/ull-esit-inf-dsi-22-23-prct10-fs-proc-sockets-funko-app-Lucasperez02/badge.svg?branch=main" alt="Coverage Status"></a>
+<a href="https://sonarcloud.io/summary/new_code?id=ULL-ESIT-INF-DSI-2223_ull-esit-inf-dsi-22-23-prct10-fs-proc-sockets-funko-app-Lucasperez02"><img src="https://sonarcloud.io/api/project_badges/measure?project=ULL-ESIT-INF-DSI-2223_ull-esit-inf-dsi-22-23-prct10-fs-proc-sockets-funko-app-Lucasperez02&metric=ncloc" alt="Lines of Code"></a></p>
+</div></div>
+<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+<div class="tsd-navigation settings">
+<details class="tsd-index-accordion"><summary class="tsd-accordion-summary">
+<h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4.93896 8.531L12 15.591L19.061 8.531L16.939 6.409L12 11.349L7.06098 6.409L4.93896 8.531Z" fill="var(--color-text)"></path></svg> Settings</h3></summary>
+<div class="tsd-accordion-details">
+<div class="tsd-filter-visibility">
+<h4 class="uppercase">Member Visibility</h4><form>
+<ul id="tsd-filter-options">
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-protected" name="protected"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Protected</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-private" name="private"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Private</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-inherited" name="inherited" checked/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Inherited</span></label></li>
+<li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-external" name="external"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>External</span></label></li></ul></form></div>
+<div class="tsd-theme-toggle">
+<h4 class="uppercase">Theme</h4><select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div>
+<nav class="tsd-navigation primary">
+<details class="tsd-index-accordion" open><summary class="tsd-accordion-summary">
+<h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M4.93896 8.531L12 15.591L19.061 8.531L16.939 6.409L12 11.349L7.06098 6.409L4.93896 8.531Z" fill="var(--color-text)"></path></svg> Modules</h3></summary>
+<div class="tsd-accordion-details">
+<ul>
+<li class="current selected"><a href="modules.html">prct10_<wbr/>Lucasperez02</a>
+<ul></ul></li></ul></div></details></nav>
+<nav class="tsd-navigation secondary menu-sticky">
+<ul>
+<li class="tsd-kind-function"><a href="functions/ejecutarComando.html" class="tsd-index-link"><svg class="tsd-kind-icon" width="24" height="24" viewBox="0 0 24 24"><rect fill="var(--color-icon-background)" stroke="var(--color-ts-function)" stroke-width="1.5" x="1" y="1" width="22" height="22" rx="6" id="icon-64-path"></rect><path d="M9.39 16V7.24H14.55V8.224H10.446V11.128H14.238V12.112H10.47V16H9.39Z" fill="var(--color-text)" id="icon-64-text"></path></svg>ejecutar<wbr/>Comando</a></li></ul></nav></div></div>
+<div class="container tsd-generator">
+<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div>
+<div class="overlay"></div><script src="assets/main.js"></script></body></html>

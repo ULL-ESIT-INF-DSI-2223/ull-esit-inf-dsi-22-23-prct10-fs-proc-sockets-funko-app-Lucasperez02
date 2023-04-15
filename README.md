@@ -183,5 +183,13 @@ Lo que saquemos de aquí se enviará al servidor para que haga la operación cor
 
 Finalmente el cliente recibirá el mensaje de éxito o fracaso que de el servidor y se mostrará por la terminal del cliente haciendo uso del **chalk**.
 
+## **Conclusión**
+
+Tras esta práctica he conseguido entender de una mejor manera módulos de node.js como **Events**, **Child_Process**, **Net** además del ya usado **Fs**. Con el ejercicio 1 he podido entender mejor el funcionamiento del bucle de eventos además de las estructuras de datos para el control de llamadas, manejadores y eventos para la ejecución de programas asíncronos y síncronos.
+
+Por otro lado, con el ejercicio 2 he comprendido el uso de lo que es un **Stream** y la utilidad que tiene el **pipe** para redirigir salidas de comandos para usarlas en la entrada de otros. Además de practicar con objetos Child Process.
+
+Por último, en el ejercicio 3, ha pesar de no haberlo podido implementar, creo haber entendido el planteamiento de cómo realizar una conexión cliente-servidor en la que el cliente pueda hacer peticiones que el servidor ejecutará y dará una respuesta.
+
 [![Coverage Status](https://coveralls.io/repos/github/ULL-ESIT-INF-DSI-2223/ull-esit-inf-dsi-22-23-prct10-fs-proc-sockets-funko-app-Lucasperez02/badge.svg?branch=main)](https://coveralls.io/github/ULL-ESIT-INF-DSI-2223/ull-esit-inf-dsi-22-23-prct10-fs-proc-sockets-funko-app-Lucasperez02?branch=main)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=ULL-ESIT-INF-DSI-2223_ull-esit-inf-dsi-22-23-prct10-fs-proc-sockets-funko-app-Lucasperez02&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=ULL-ESIT-INF-DSI-2223_ull-esit-inf-dsi-22-23-prct10-fs-proc-sockets-funko-app-Lucasperez02)
